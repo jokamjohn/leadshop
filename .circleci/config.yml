@@ -55,7 +55,7 @@ jobs:
           destination: test-reports
 
       - deployment:
-          production:
+          prod:
             branch: master
             heroku:
               appname: leadshop
