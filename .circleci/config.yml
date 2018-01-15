@@ -55,7 +55,6 @@ jobs:
             branch: master
             heroku:
               appname: leadshop
-
           staging:
             branch: staging
             heroku:
