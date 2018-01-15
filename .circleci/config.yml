@@ -49,3 +49,14 @@ jobs:
       - store_artifacts:
           path: test-reports
           destination: test-reports
+
+      - deployment:
+          production:
+            branch: master
+            heroku:
+              appname: leadshop
+
+          staging:
+            branch: staging
+            heroku:
+              appname: leadshop-staging
