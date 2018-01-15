@@ -1,0 +1,1 @@
+web: gunicorn leadshop.wsgi --log-file -
