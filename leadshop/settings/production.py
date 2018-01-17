@@ -4,6 +4,10 @@ import os
 
 DEBUG = False
 
+ALLOWED_HOSTS += [
+    'leadshop.herokuapp.com'
+]
+
 SECRET_KEY = os.getenv('SECRET_KEY', '604s%iu%y$_356fb2#kmsc@yk+g0#hd4ztbnoc!k0y^$_y9n+n')
 
 # Update database configuration with $DATABASE_URL.
