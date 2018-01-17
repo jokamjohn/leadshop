@@ -53,3 +53,11 @@ class ActivateUser(View):
             return redirect(reverse_lazy("login"))
         else:
             return HttpResponse("Invalid activation link")
+
+
+class LoginSuccess(View):
+    def get(self, request):
+        if request.user.is_merchant:
+            redirect("dashboard")
+        else:
+            redirect("shops")
