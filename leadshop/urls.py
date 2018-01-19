@@ -20,5 +20,5 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^merchant/accounts/', include("accounts.urls", namespace="accounts")),
-    url(r"^merchant/accounts/login/$", auth_views.login, name="login")
+    url(r"^merchant/accounts/login/$", auth_views.login, {'template_name': 'accounts/login.html'}, name="login")
 ]
