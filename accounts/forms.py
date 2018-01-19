@@ -5,6 +5,10 @@ from . import emails
 
 
 class UserCreateForm(UserCreationForm):
+    """
+    Form class to which persists a User into the database.
+    """
+
     class Meta:
         fields = ('email', 'username', 'password1', 'password2')
         model = get_user_model()

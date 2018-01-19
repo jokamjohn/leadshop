@@ -2,17 +2,16 @@
 
 {% block title %}Leadshop | Login {% endblock %}
 
-{% block body_css %}hold-transition login-page{% endblock %}
+{% block body_css %}class="hold-transition login-page"{% endblock %}
 
 {% block body_content %}
-    <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
             <a href="#"><b>Lead</b>shop</a>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
-            <p class="login-box-msg">Sign in to manage your shop</p>
+            <p class="login-box-msg">Sign In</p>
 
             <form method="post">
                 {% csrf_token %}
@@ -43,8 +42,8 @@
                 </div>
             </form>
 
-            <a href="#">I forgot my password</a><br>
-            <a href="#" class="text-center">Register as a merchant</a>
+            <a href="{% url "password_reset" %}">I forgot my password</a><br>
+            <a href="{% url "accounts:merchant_signup" %}" class="text-center">Register as a merchant</a>
 
         </div>
         <!-- /.login-box-body -->
