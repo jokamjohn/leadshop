@@ -58,6 +58,5 @@ class ActivateUser(View):
 class LoginSuccess(View):
     def get(self, request):
         if request.user.is_merchant:
-            redirect("dashboard")
-        else:
-            redirect("shops")
+            return redirect("merchant:dashboard")
+        return redirect("shops")
