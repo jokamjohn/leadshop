@@ -1,4 +1,4 @@
-{% load static %}
+{% load static from staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +14,9 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href={% static "accounts/css/AdminLTE.min.css" %}>
+    <link rel="stylesheet" href={% static "css/AdminLTE.min.css" %}>
     <!-- iCheck -->
-    <link rel="stylesheet" href={% static "accounts/plugins/iCheck/square/blue.css" %}>
+    <link rel="stylesheet" href={% static "plugins/iCheck/square/blue.css" %}>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -27,7 +27,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
 
     <!-- Favicons -->
-    <link rel="icon" type="image/png" sizes="96x96" href={% static "accounts/favicon-96x96.png" %}>
+    <link rel="icon" type="image/png" sizes="96x96" href={% static "favicon-96x96.png" %}>
     <!-- Favicons -->
 
     <title>{% block title %}Leadshop {% endblock %}</title>
@@ -46,7 +46,7 @@
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 <!-- iCheck -->
-<script src={% static "accounts/plugins/iCheck/icheck.min.js" %}></script>
+<script src={% static "plugins/iCheck/icheck.min.js" %}></script>
 {% block scripts %}{% endblock %}
 </body>
 </html>
