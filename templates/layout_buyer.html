@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Leadshop - Ecommerce shop">
+    <meta name="author" content="John Kagga">
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="96x96" href={% static "favicon-96x96.png" %}>
+    <!-- Favicons -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
+    <!-- styles -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href={% static "css/bootstrap.min.css" %}>
+    <link rel="stylesheet" href={% static "css/animate.min.css" %}>
+    <link rel="stylesheet" href={% static "css/owl.carousel.css" %}>
+    <link rel="stylesheet" href={% static "css/owl.theme.css" %}>
+    <!-- theme stylesheet -->
+    <link rel="stylesheet" id="theme-stylesheet" href={% static "css/style.default.css" %}>
+    <script src={% static "js/respond.min.js" %}></script>
+    <title>{% block title %}Leadshop{% endblock %}</title>
+</head>
+
+<body>
+
+{% block content_body %}{% endblock %}
+
+<script src={% static "js/jquery-1.11.0.min.js" %}></script>
+<script src={% static "js/bootstrap.min.js" %}></script>
+<script src={% static "js/jquery.cookie.js" %}></script>
+<script src={% static "js/waypoints.min.js" %}></script>
+<script src={% static "js/modernizr.js" %}></script>
+<script src={% static "js/bootstrap-hover-dropdown.js" %}></script>
+<script src={% static "js/owl.carousel.min.js" %}></script>
+<script src={% static "js/front.js" %}></script>
+</body>
+</html>
