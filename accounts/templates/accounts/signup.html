@@ -1,0 +1,55 @@
+{% extends "layout_merchant.html" %}
+
+{% block title %}Leadshop | Sign Up {% endblock %}
+
+{% block body_css %}class="hold-transition register-page"{% endblock %}
+
+{% block body_content %}
+    <div class="register-box">
+        <div class="login-logo">
+            <a href="#"><b>Lead</b>shop</a>
+        </div>
+
+        <div class="register-box-body">
+            <p class="login-box-msg">Register as a merchant</p>
+
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group has-feedback">
+                    <input type="text" class="form-control"
+                           placeholder="Username"
+                           name={{ form.username.html_name }}
+                                   required>
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    {{ form.username.errors }}
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="email" class="form-control" placeholder="Email" name={{ form.email.html_name }}>
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    {{ form.email.errors }}
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" class="form-control" placeholder="Password"
+                           name={{ form.password1.html_name }} required>
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    {{ form.password1.errors }}
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" class="form-control"
+                           placeholder="Retype password" name={{ form.password2.html_name }} required>
+                    <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                    {{ form.password2.errors }}
+                </div>
+                <div class="row">
+                    <!-- /.col -->
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+            <a href="{% url "login" %}" class="text-center">I already have an account</a>
+        </div>
+        <!-- /.form-box -->
+    </div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "layout_merchant.html" %}
+
+{% block title %}Leadshop | Login {% endblock %}
+
+{% block body_css %}class="hold-transition login-page"{% endblock %}
+
+{% block body_content %}
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="#"><b>Lead</b>shop</a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+            <p class="login-box-msg">Sign In</p>
+
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group has-feedback">
+                    <input type="email" class="form-control" placeholder="Email" name="{{ form.username.html_name }}">
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    {{ form.username.errors }}
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" class="form-control" placeholder="Password"
+                           name={{ form.password.html_name }}>
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    {{ form.password.errors }}
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div class="checkbox icheck">
+                            <label>
+                                <input type="checkbox"> Remember Me
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+
+            <a href="{% url "password_reset" %}">I forgot my password</a><br>
+            <a href="{% url "accounts:merchant_signup" %}" class="text-center">Register as a merchant</a>
+
+        </div>
+        <!-- /.login-box-body -->
+    </div>
+    <!-- /.login-box -->
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        $(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' // optional
+            });
+        });
+    </script>
+{% endblock %}
