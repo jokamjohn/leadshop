@@ -121,8 +121,43 @@ class TestMerchantAuth(TestCase):
         user = User.objects.get(username="jokam")
         user.is_active = True
         user.save()
-        print(user.is_active)
         response = self.client.post("/login/", data={"username": "jokamjohn@gmail.com", "password": "@Johnkagga1"},
                                     follow=True)
         self.assertTrue(response.status_code, 302)
         self.assertTrue(response.templates[0].name, "merchant/dashboard_layout.html")
+
+    def test_user_not_merchant_cannot_assess_merchant_dashboard(self):
+        """
+        Test that when a user is not a merchant and they trail logging into the merchant
+        dashboard, they are redirected to the login page.
+        :return:
+        """
+        User = get_user_model()
+        User.objects.create_user(email="jokamjohn@gamil.com", username="jokam", password="@Johnkagga1",
+                                 is_merchant=False)
+        response = self.client.post("/login/", data={"username": "jokamjohn@gmail.com", "password": "@Johnkagga1"},
+                                    follow=True)
+        self.assertTrue(response.templates[0].name, "accounts/login.html")
+        self.assertTrue(response.templates[1].name, "layout_merchant.html")
+
+    def test_merchant_user_logout(self):
+        """
+        Test that a user is successfully logged out.
+        :return:
+        """
+        data = {
+            "username": "jokam",
+            "email": "jokamjohn@gmail.com",
+            "password1": "@Johnkagga1",
+            "password2": "@Johnkagga1"
+        }
+        self.client.post("/merchant/accounts/signup/", data)
+        User = get_user_model()
+        user = User.objects.get(username="jokam")
+        user.is_active = True
+        user.save()
+        self.client.post("/login/", data={"username": "jokamjohn@gmail.com", "password": "@Johnkagga1"},
+                         follow=True)
+        response = self.client.get("/logout/")
+        self.assertTrue(response.status_code, 302)
+        self.assertTrue(response.url, "/login/")
