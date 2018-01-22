@@ -51,8 +51,7 @@ class ActivateUser(View):
             user.is_active = True
             user.save()
             return redirect(reverse_lazy("login"))
-        else:
-            return HttpResponse("Invalid activation link")
+        return HttpResponse("Invalid activation link")  # TODO replace this with a template
 
 
 class LoginSuccess(View):
