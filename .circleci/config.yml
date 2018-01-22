@@ -50,7 +50,15 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            python manage.py test
+            coverage run --source=leadshop manage.py test
+
+      - run:
+          name: coverage
+          command: coverage report
+
+      notify:
+        webhooks:
+          - url: https://coveralls.io/webhook?repo_token=j4dV8z4s6BC2vAkzyiQbMiioERxyhgZYL
 
       - store_artifacts:
           path: test-reports
