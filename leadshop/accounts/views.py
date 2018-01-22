@@ -1,4 +1,4 @@
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, logout
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.core.urlresolvers import reverse_lazy
@@ -7,7 +7,7 @@ from django.utils.http import urlsafe_base64_decode
 from django.views import View, generic
 
 from . import forms
-from accounts.tokens import account_activation_token
+from leadshop.accounts.tokens import account_activation_token
 
 
 class MerchantRegistration(generic.CreateView):
@@ -51,13 +51,27 @@ class ActivateUser(View):
             user.is_active = True
             user.save()
             return redirect(reverse_lazy("login"))
-        else:
-            return HttpResponse("Invalid activation link")
+        return HttpResponse("Invalid activation link")  # TODO replace this with a template
 
 
 class LoginSuccess(View):
     def get(self, request):
         if request.user.is_merchant:
-            redirect("dashboard")
-        else:
-            redirect("shops")
+            return redirect("merchant:dashboard")
+        return redirect("shops")
+
+
+class LoginOut(generic.RedirectView):
+    # Url to redirect to after a user is logged out.
+    url = reverse_lazy("login")
+
+    def get(self, request, *args, **kwargs):
+        """
+        Log out a user
+        :param request:
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        logout(request)
+        return super().get(request, *args, **kwargs)

@@ -1,4 +1,4 @@
-{% load static  %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +24,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- Google Font -->
+    {% block head_links %}{% endblock %}
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
 
     <!-- Favicons -->
@@ -47,6 +48,7 @@
         crossorigin="anonymous"></script>
 <!-- iCheck -->
 <script src={% static "plugins/iCheck/icheck.min.js" %}></script>
+<script src={% static "js/adminlte.min.js" %}></script>
 {% block scripts %}{% endblock %}
 </body>
 </html>

@@ -4,7 +4,7 @@ from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from django.core.mail import EmailMessage
 
-from accounts.tokens import account_activation_token
+from leadshop.accounts.tokens import account_activation_token
 
 
 def send_user_registration_activation_email(request, user, email):

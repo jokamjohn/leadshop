@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts'
+    'leadshop.accounts',
+    'leadshop.merchant'
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,5 @@ STATICFILES_DIRS = (
 AUTH_USER_MODEL = "accounts.User"
 
 LOGIN_REDIRECT_URL = "accounts:login_success"
+
+LOGIN_URL = "login"
