@@ -4,8 +4,8 @@ from django.contrib.auth import get_user_model
 import re
 import urllib.parse
 
-from accounts.forms import UserCreateForm
-from accounts.views import MerchantRegistration
+from leadshop.accounts.forms import UserCreateForm
+from leadshop.accounts.views import MerchantRegistration
 
 
 class TestMerchantAuth(TestCase):

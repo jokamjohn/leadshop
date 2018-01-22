@@ -7,7 +7,7 @@ from django.utils.http import urlsafe_base64_decode
 from django.views import View, generic
 
 from . import forms
-from accounts.tokens import account_activation_token
+from leadshop.accounts.tokens import account_activation_token
 
 
 class MerchantRegistration(generic.CreateView):
