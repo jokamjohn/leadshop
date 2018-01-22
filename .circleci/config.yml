@@ -62,7 +62,17 @@ jobs:
           command: |
             . venv/bin/activate
             coverage run --source=leadshop manage.py test
+
+      - run:
+          name: coverage
+          command: |
+            . venv/bin/activate
             coverage report
+
+      - run:
+          name: coveralls
+          command: |
+            . venv/bin/activate
             coveralls
 
       - store_artifacts:
