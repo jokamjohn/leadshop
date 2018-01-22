@@ -55,10 +55,9 @@ jobs:
       - run:
           name: coverage
           command: coverage report
-
-      - notify:
-          webhooks:
-            - url: https://coveralls.io/webhook?repo_token=j4dV8z4s6BC2vAkzyiQbMiioERxyhgZYL
+      - run:
+          name: coveralls
+          command: coveralls
 
       - store_artifacts:
           path: test-reports
