@@ -1,6 +1,7 @@
 # Leadshop
 
 [![CircleCI](https://circleci.com/gh/jokamjohn/leadshop/tree/master.svg?style=svg)](https://circleci.com/gh/jokamjohn/leadshop/tree/master)
+[![Coverage Status](https://coveralls.io/repos/github/jokamjohn/leadshop/badge.svg?branch=master)](https://coveralls.io/github/jokamjohn/leadshop?branch=master)
 
 Leadshop is an e-commerce application which enables a user sign up a merchant and then 
 create a shop.
