@@ -25,7 +25,9 @@ EMAIL_HOST
 DATABASE_NAME
 DATABASE_USER
 DATABASE_PASSWORD
+FROM_EMAIL
 ```
+_where FROM_EMAIL is the fromEmail when an email is sent from the application._
 
 - Run the database migration by running 
 ```angular2html
