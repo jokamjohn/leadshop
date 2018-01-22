@@ -1,4 +1,4 @@
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, logout
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.core.urlresolvers import reverse_lazy
@@ -60,3 +60,19 @@ class LoginSuccess(View):
         if request.user.is_merchant:
             return redirect("merchant:dashboard")
         return redirect("shops")
+
+
+class LoginOut(generic.RedirectView):
+    # Url to redirect to after a user is logged out.
+    url = reverse_lazy("login")
+
+    def get(self, request, *args, **kwargs):
+        """
+        Log out a user
+        :param request:
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        logout(request)
+        return super().get(request, *args, **kwargs)
