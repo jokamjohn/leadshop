@@ -2,7 +2,7 @@ from .base import *
 import dj_database_url
 import os
 
-DEBUG = False
+DEBUG = os.getenv("DEBUG", False)
 
 ALLOWED_HOSTS += [
     'leadshop.herokuapp.com'
