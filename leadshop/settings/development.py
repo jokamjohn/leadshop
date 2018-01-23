@@ -12,9 +12,4 @@ DATABASES = {
     }
 }
 
-EMAIL_HOST = os.getenv('EMAIL_HOST')
-EMAIL_HOST_USER = os.getenv('EMAIL_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
-EMAIL_PORT = os.getenv('EMAIL_PORT')
-
 SITE_DOMAIN = "localhost:8000"
